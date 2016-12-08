@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html> 
+<html>
+<head>
+  <title>Javascript Finite State Machine Music Visualizer</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
+  <link href="demo/demo.css" media="screen, print" rel="stylesheet" type="text/css" /> 
+</head> 
+ 
+<body> 
+  <div id="demo" class='green'>
+
+    <h1> Finite State Machine Music Visualizer</h1>
+
+    <div id="controls">
+    </div>
+
+    <div id="diagram">
+    </div>
+      <audio controls="controls" onplay="update()" id="audioElement" src="Blue Oyster Cult- Burnin' For You.mp3"></audio>
+
+    <div id="notes">
+        <p>This Visualizer works by analysing the music's frequency data every 100ms, If the amplitude of the lowest frequency increased since the last time the color goes outwards
+        if it decreased then the color goes inwards. If there is no change then nothing happens. If the visualizer is orange and the amplitude increases it restarts from the center and if its at the center
+        and there's a decrease then the visualizer goes to orange</p>
+        <p>I used this javascript library:</p> <a href="https://github.com/jakesgordon/javascript-state-machine">https://github.com/jakesgordon/javascript-state-machine</a> <p>to help create the NFA, I used the example as a starting point then added and changed tranitions, states and functionality.
+        I also used the Web audio API to analyse the music</p>
+      <i>A more formal definition is below the output</i>
+       
+    </div>
+
+    <textarea id="output">
+    </textarea>
+      <table>
+          <tr>
+              <th>State</th>
+              <th>up</th>
+              <th>down</th>
+              <th>no change</th>
+          </tr>
+          <tr>
+              <td>Q0</td>
+              <td>Q1</td>
+              <td>Q5</td>
+              <td>Q0</td>
+          </tr>
+          <tr>
+              <td>Q1</td>
+              <td>Q2</td>
+              <td>Q0</td>
+              <td>Q1</td>
+          </tr>
+          <tr>
+              <td>Q2</td>
+              <td>Q3</td>
+              <td>Q1</td>
+              <td>Q2</td>
+          </tr>
+          <tr>
+              <td>Q3</td>
+              <td>Q4</td>
+              <td>Q2</td>
+              <td>Q3</td>
+          </tr>
+          <tr>
+              <td>Q4</td>
+              <td>Q5</td>
+              <td>Q3</td>
+              <td>Q4</td>
+          </tr>
+          <tr>
+              <td>Q5</td>
+              <td>Q0</td>
+              <td>Q4</td>
+              <td>Q5</td>
+          </tr>
+      </table>
+  </div>
+    <div style="align-self:center;" id="NFADiagram">
+    </div>
+
+
+  <script src="state-machine.js"></script>
+  <script src="demo/demo.js"></script>
+
+</body> 
+</html>

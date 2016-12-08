@@ -1,0 +1,16 @@
+#demo { width: 400px; margin: 0 auto; text-align: center; }
+
+#controls { text-align: center; }
+
+#demo #notes   { margin-bottom: 1em; }
+#demo #diagram { width: 443px; height: 422px; }
+#NFADiagram { width: 1039px; height: 572px; background: url(images/NFADiagram.png);}
+#demo #output  { width: 100%;  height: 30em;  }
+
+#demo.green  #diagram { background: url(images/green.png);  }
+#demo.yellow #diagram { background: url(images/yellow.png); }
+#demo.red    #diagram { background: url(images/red.png);    }
+#demo.blue  #diagram { background: url(images/blue.png);  }
+#demo.orange #diagram { background: url(images/orange.png); }
+#demo.base    #diagram { background: url(images/base.png);    }
+
